@@ -1,0 +1,38 @@
+{% extends 'glowny.html' %}
+
+{% block tytul %}Moje Treningi{% endblock %}
+
+{% block strona %}
+
+<div class="jumbotron">
+    <i class="fa-solid fa-right-to-bracket"></i>
+    <h1>Witaj {{user.username|title}}</h1>
+    <a href="{% url 'wylogowanie' %}" class="btn btn-secondary">Wyloguj się</a>
+    <br>
+
+</div>
+<a href="{% url 'Pokaz_wykresy' %}"class="btn btn-success">Pokaż wykresy <i class="fas fa-chart-area"></i></a>
+<a href="{% url 'Dodaj_trening' %}"class="btn btn-success">Dodaj trening - Tower 90 <i class="fas fa-plus-circle"></i></a>
+<h4>Ilość treningów w systemie: {{ all_trainings|length}}</h4>
+    {% for all_trainings in all_trainings %}
+
+                <div class="card" style="width: 26rem;">
+                    <div class="card-body">
+                         <h5 class="card-title">{{ all_trainings }}</h5>
+                            <div class="row">
+                                    <div class="col-8">
+                                        <p class="card-text">{{all_trainings.horse}}, {{all_trainings.place}}, {{ all_trainings.date|date:"d-m-Y" }}</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="{% url 'Pokaz_statystyki' all_trainings.id %}"><i class="fas fa-2x fa-list-alt"></i></a>
+                                        <a href="{% url 'Edytuj_trening' all_trainings.id %}"><i class="fas fa-2x fa-pen-square"></i></a>
+                                        <a href="{% url 'Usuń_trening' all_trainings.id %}"><i class="fas fa-2x fa-trash"></i></a>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+    {% endfor %}
+
+{% endblock %}
+
+

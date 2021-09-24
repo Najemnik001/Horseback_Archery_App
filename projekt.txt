@@ -1,0 +1,6 @@
+sortowanie treningów po dacie i wyniku (chyba trzeba przedstqawiać listę wyników w tabeli)
+
+poprawić liczenie Strzały w macie(punktowane i bez punktów)
+
+przyciski z napisami 
+

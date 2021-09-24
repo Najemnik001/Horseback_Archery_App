@@ -1,0 +1,14 @@
+{% extends 'glowny.html' %}
+
+{% block tytul %}Usuń{% endblock %}
+
+{% block strona %}
+
+    <h3>Czy na pewno chcesz usunąć "{{ training.title}}, {{ training.horse }}" trening?</h3>
+    <form method="POST">
+        {%csrf_token%}
+        <button type="submit" class="btn btn-danger">Usuń</button>
+        <a href="{% url 'Moje_treningi' %}"><i class="fas fa-2x fa-caret-square-left"></i></a>
+    </form>
+
+{% endblock %}

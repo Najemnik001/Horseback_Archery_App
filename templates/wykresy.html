@@ -1,0 +1,15 @@
+{% extends 'glowny.html' %}
+{% load bootstrap %}
+{% block tytul %}Wykresy{% endblock %}
+
+{% block strona %}
+
+<div class="card" style="width: 50rem;">
+    <div class="card-body">
+        <img src="data:image/png;base64,{{data}}" alt="" width="600">
+
+
+    </div>
+</div>
+
+{% endblock %}

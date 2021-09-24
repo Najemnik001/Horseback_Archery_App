@@ -1,0 +1,95 @@
+{% extends 'glowny.html' %}
+{% load bootstrap %}
+{% block tytul %}Trening{% endblock %}
+
+{% block strona %}
+<div class="card" style="width: 42rem;">
+    <div class="card-body">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table class="table table-striped table-bordered" >
+                  <thead>
+                    <tr>
+                      <th scope="col">Tytuł</th>
+                      <th scope="col" >Miejsce</th>
+                      <th scope="col" >Koń</th>
+                      <th scope="col" >Data</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>{{form.title|bootstrap}}</th>
+                      <td>{{form.place|bootstrap}}</td>
+                      <td>{{form.horse|bootstrap}}</td>
+                      <td>{{form.date|bootstrap}}</td>
+                    </tr>
+                  <tr>
+                      <th scope="col">Opis</th>
+                      <td colspan="3">{{form.description|bootstrap}}</td>
+                    </tr>
+                  </tbody>
+            </table>
+            <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Przejazd</th>
+                      <th scope="col" >Tarcza 1</th>
+                      <th scope="col" >Tarcza 2</th>
+                      <th scope="col" >Tarcza 3</th>
+                      <th scope="col">Czas</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>{{form.a1|bootstrap}}</td>
+                      <td>{{form.b1|bootstrap}}</td>
+                      <td>{{form.c1|bootstrap}}</td>
+                      <td>{{form.run_1_time|bootstrap}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>{{form.a2|bootstrap}}</td>
+                      <td>{{form.b2|bootstrap}}</td>
+                      <td>{{form.c2|bootstrap}}</td>
+                      <td>{{form.run_2_time|bootstrap}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>{{form.a3|bootstrap}}</td>
+                      <td>{{form.b3|bootstrap}}</td>
+                      <td>{{form.c3|bootstrap}}</td>
+                      <td>{{form.run_3_time|bootstrap}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>{{form.a4|bootstrap}}</td>
+                      <td>{{form.b4|bootstrap}}</td>
+                      <td>{{form.c4|bootstrap}}</td>
+                      <td>{{form.run_4_time|bootstrap}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td>{{form.a5|bootstrap}}</td>
+                      <td>{{form.b5|bootstrap}}</td>
+                      <td>{{form.c5|bootstrap}}</td>
+                      <td>{{form.run_5_time|bootstrap}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td>{{form.a6|bootstrap}}</td>
+                      <td>{{form.b6|bootstrap}}</td>
+                      <td>{{form.c6|bootstrap}}</td>
+                      <td>{{form.run_6_time|bootstrap}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+            <button type="submit" class="btn btn-success">Zapisz trening</button>
+            <a href="{% url 'Moje_treningi' %}"><i class="fas fa-3x fa-caret-square-left"></i></a>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+

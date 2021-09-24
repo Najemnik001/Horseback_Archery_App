@@ -1,0 +1,281 @@
+{% extends 'glowny.html' %}
+{% load bootstrap %}
+{% block tytul %}Statystyki: {{all_statistics.title}}{% endblock %}
+
+{% block strona %}
+
+<div class="card" style="width: 80rem;">
+  <h1>{{all_statistics.title}}, {{all_statistics.horse}}, {{all_statistics.date|date:"d-m-Y"}}</h1>
+    <div class="card-body">
+        <form method="POST" enctype="multipart/form-data">
+          <div class="row">
+            <div class="col-4 align-self-end">
+                <table class="table table-striped table-bordered" >
+                  <thead>
+                    <tr>
+                      <th scope="col">Przejazd</th>
+                      <th scope="col" class="table-primary">Tarcza 1</th>
+                      <th scope="col" class="table-success">Tarcza 2</th>
+                      <th scope="col" class="table-warning">Tarcza 3</th>
+                      <th scope="col">Czas</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td class="table-primary">{{all_statistics.a1}}</td>
+                      <td class="table-success">{{all_statistics.b1}}</td>
+                      <td class="table-warning">{{all_statistics.c1}}</td>
+                      <td>{{all_statistics.run_1_time}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td class="table-primary">{{all_statistics.a2}}</td>
+                      <td class="table-success">{{all_statistics.b2}}</td>
+                      <td class="table-warning">{{all_statistics.c2}}</td>
+                      <td>{{all_statistics.run_2_time}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td class="table-primary">{{all_statistics.a3}}</td>
+                      <td class="table-success">{{all_statistics.b3}}</td>
+                      <td class="table-warning">{{all_statistics.c3}}</td>
+                      <td>{{all_statistics.run_3_time}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td class="table-primary">{{all_statistics.a4}}</td>
+                      <td class="table-success">{{all_statistics.b4}}</td>
+                      <td class="table-warning">{{all_statistics.c4}}</td>
+                      <td>{{all_statistics.run_4_time}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td class="table-primary">{{all_statistics.a5}}</td>
+                      <td class="table-success">{{all_statistics.b5}}</td>
+                      <td class="table-warning">{{all_statistics.c5}}</td>
+                      <td>{{all_statistics.run_5_time}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td class="table-primary">{{all_statistics.a6}}</td>
+                      <td class="table-success">{{all_statistics.b6}}</td>
+                      <td class="table-warning">{{all_statistics.c6}}</td>
+                      <td>{{all_statistics.run_6_time}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Suma punktów</th>
+                      <td class="table-primary">{{ all_statistics.result_front|last }}</td>
+                      <td class="table-success">{{ all_statistics.result_side|last }}</td>
+                      <td class="table-warning">{{all_statistics.result_back|last}}</td>
+                      <td></td>
+                    </tr>
+
+
+                  </tbody>
+                </table>
+                <table class="table table-primary table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Statystyki w przód</th>
+                      <th scope="col">ilość</th>
+                      <th scope="col">procent</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Strzały wystrzelone</th>
+                      <td>{{all_statistics.result_front|first}}</td>
+                      <td>-</td>
+
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały punktowane</th>
+                      <td>{{all_statistics.result_front|slice:"4:5"|join:"" }}</td>
+                      <td>{{all_statistics.procent_front|slice:"4:5"|join:""}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały w macie bez punktów</th>
+                      <td>{{all_statistics.result_front|slice:"3:4"|join:"" }}</td>
+                      <td>{{all_statistics.procent_front|slice:"3:4"|join:""}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Średni wynik strzały</th>
+                      <td>{{all_statistics.result_front|slice:"5:6"|join:"" }}</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały w macie(punktowane i bez punktów)</th>
+                      <td>{{all_statistics.result_front|slice:"2:3"|join:"" }}</td>
+                      <td>{{all_statistics.procent_front|slice:"2:3"|join:""}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały spudłowane</th>
+                      <td>{{all_statistics.result_front|slice:"1:2"|join:""}}</td>
+                      <td>{{all_statistics.procent_front|slice:"1:2"|join:""}}</td>
+                    </tr>
+
+
+              </tbody>
+            </table>
+            </div>
+            <div class="col-4 align-self-end">
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Statystyki ogólne</th>
+                      <th scope="col">ilość</th>
+                      <th scope="col">procent</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Punkty tarczowe suma</th>
+                      <td>{{all_statistics.result_general|last}}</td>
+                      <td>-</td>
+
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały wystrzelone</th>
+                      <td>{{all_statistics.result_general|first}}</td>
+                      <td>-</td>
+
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały punktowane</th>
+                      <td>{{all_statistics.result_general|slice:"4:5"|join:"" }}</td>
+                      <td>{{all_statistics.procent|slice:"4:5"|join:""}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały w macie bez punktów</th>
+                      <td>{{all_statistics.result_general|slice:"3:4"|join:"" }}</td>
+                      <td>{{all_statistics.procent|slice:"3:4"|join:""}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Średni wynik strzały</th>
+                      <td>{{all_statistics.result_general|slice:"5:6"|join:"" }}</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały w macie(punktowane i bez punktów)</th>
+                      <td>{{all_statistics.result_general|slice:"3:4"|join:"" }}</td>
+                      <td>{{all_statistics.procent|slice:"3:4"|join:""}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały spudłowane</th>
+                      <td>{{all_statistics.result_general|slice:"1:2"|join:""}}</td>
+                      <td>{{all_statistics.procent|slice:"1:2"|join:""}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"> </th>
+                      <td> </td>
+                      <td> </td>
+                    </tr>
+
+
+              </tbody>
+            </table>
+                <table class="table table-success table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Statystyki w bok</th>
+                      <th scope="col">ilość</th>
+                      <th scope="col">procent</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Strzały wystrzelone</th>
+                      <td>{{all_statistics.result_side|first}}</td>
+                      <td>-</td>
+
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały punktowane</th>
+                      <td>{{all_statistics.result_side|slice:"4:5"|join:"" }}</td>
+                      <td>{{all_statistics.procent_side|slice:"4:5"|join:""}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały w macie bez punktów</th>
+                      <td>{{all_statistics.result_side|slice:"3:4"|join:"" }}</td>
+                      <td>{{all_statistics.procent_side|slice:"3:4"|join:""}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Średni wynik strzały</th>
+                      <td>{{all_statistics.result_side|slice:"5:6"|join:"" }}</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały w macie(punktowane i bez punktów)</th>
+                      <td>{{all_statistics.result_side|slice:"2:3"|join:"" }}</td>
+                      <td>{{all_statistics.procent_side|slice:"2:3"|join:""}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały spudłowane</th>
+                      <td>{{all_statistics.result_side|slice:"1:2"|join:""}}</td>
+                      <td>{{all_statistics.procent_side|slice:"1:2"|join:""}}</td>
+                    </tr>
+
+
+              </tbody>
+            </table>
+            </div>
+            <div class="col-4 align-self-end">
+                <table class="table table-warning table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Statystyki w tył</th>
+                      <th scope="col">ilość</th>
+                      <th scope="col">procent</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Strzały wystrzelone</th>
+                      <td>{{all_statistics.result_back|first}}</td>
+                      <td>-</td>
+
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały punktowane</th>
+                      <td>{{all_statistics.result_back|slice:"4:5"|join:"" }}</td>
+                      <td>{{all_statistics.procent_back|slice:"4:5"|join:""}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały w macie bez punktów</th>
+                      <td>{{all_statistics.result_back|slice:"3:4"|join:"" }}</td>
+                      <td>{{all_statistics.procent_back|slice:"3:4"|join:""}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Średni wynik strzały</th>
+                      <td>{{all_statistics.result_back|slice:"5:6"|join:"" }}</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały w macie(punktowane i bez punktów)</th>
+                      <td>{{all_statistics.result_back|slice:"2:3"|join:"" }}</td>
+                      <td>{{all_statistics.procent_back|slice:"2:3"|join:""}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały spudłowane</th>
+                      <td>{{all_statistics.result_back|slice:"1:2"|join:""}}</td>
+                      <td>{{all_statistics.procent_back|slice:"1:2"|join:""}}</td>
+                    </tr>
+
+
+              </tbody>
+            </table>
+            </div>
+          </div>
+            <a href="{% url 'Edytuj_trening' all_statistics.id %}"><i class="fas fa-2x fa-pen-square"></i></a>
+            <a href="{% url 'Moje_treningi' %}"><i class="fas fa-2x fa-caret-square-left"></i></a>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
