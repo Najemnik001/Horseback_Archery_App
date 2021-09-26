@@ -1,0 +1,25 @@
+{% extends 'glowny.html' %}
+{% load bootstrap %}
+{% block tytul %}Rejestracja{% endblock %}
+
+{% block strona %}
+<div class="card" style="width: 23rem;">
+    <div class="card-body">
+        <form action="register" method="post">
+            {%csrf_token%}
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
+            <input type="text" name="first_name" placeholder="Imię"><br>
+            <input type="text" name="last_name" placeholder="Nazwisko"><br>
+            <input type="text" name="username" placeholder="Nazwa użytkownika"><br>
+            <input type="email" name="email" placeholder="e-mail"><br>
+            <input type="password" name="password1" placeholder="hasło"><br>
+            <input type="password" name="password2" placeholder="potwierdź hasło"><br>
+            <br>
+            <button type="submit" class="btn btn-success">Zarejestruj</button>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

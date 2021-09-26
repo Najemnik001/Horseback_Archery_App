@@ -9,6 +9,7 @@ urlpatterns = [
     path('HAApp/', include('HArcherApp.urls')),
     path('login/', auth_views.LoginView.as_view(), name="logowanie"),
     path('logout/', auth_views.LogoutView.as_view(), name="wylogowanie"),
+    path('accounts/', include('accounts.urls')),
 
 ]
 

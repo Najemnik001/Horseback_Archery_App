@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 import matplotlib.pyplot as plt
 import io
 import urllib, base64
-from django.utils import timezonecae
+from django.utils import timezone
 
 @login_required
 def all_results(request):
