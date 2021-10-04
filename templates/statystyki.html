@@ -87,33 +87,37 @@
                     <tr>
                       <th scope="row">Strzały wystrzelone</th>
                       <td>{{all_statistics.result_front|first}}</td>
-                      <td>-</td>
-
+                      <td>100%</td>
                     </tr>
                     <tr>
                       <th scope="row">Strzały punktowane</th>
                       <td>{{all_statistics.result_front|slice:"4:5"|join:"" }}</td>
-                      <td>{{all_statistics.procent_front|slice:"4:5"|join:""}}</td>
+                      <td>{{all_statistics.procent_front|slice:"4:5"|join:""}}%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały w macie (punktowane i bez punktów)</th>
+                      <td>{{all_statistics.result_front|slice:"2:3"|join:"" }}</td>
+                      <td>{{all_statistics.procent_front|slice:"2:3"|join:""}}%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały punktowane do strzał w macie (punktowanych i bez punktów)</th>
+                      <td>{{all_statistics.result_front|slice:"4:5"|join:"" }}/{{all_statistics.result_front|slice:"2:3"|join:"" }}</td>
+                      <td>{{all_statistics.result_front|slice:"6:7"|join:"" }}%</td>
                     </tr>
                     <tr>
                       <th scope="row">Strzały w macie bez punktów</th>
                       <td>{{all_statistics.result_front|slice:"3:4"|join:"" }}</td>
-                      <td>{{all_statistics.procent_front|slice:"3:4"|join:""}}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Średni wynik strzały</th>
-                      <td>{{all_statistics.result_front|slice:"5:6"|join:"" }}</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Strzały w macie(punktowane i bez punktów)</th>
-                      <td>{{all_statistics.result_front|slice:"2:3"|join:"" }}</td>
-                      <td>{{all_statistics.procent_front|slice:"2:3"|join:""}}</td>
+                      <td>{{all_statistics.procent_front|slice:"3:4"|join:""}}%</td>
                     </tr>
                     <tr>
                       <th scope="row">Strzały spudłowane</th>
                       <td>{{all_statistics.result_front|slice:"1:2"|join:""}}</td>
-                      <td>{{all_statistics.procent_front|slice:"1:2"|join:""}}</td>
+                      <td>{{all_statistics.procent_front|slice:"1:2"|join:""}}%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Średni wynik strzały</th>
+                      <td>{{all_statistics.result_front|slice:"5:6"|join:""}}</td>
+                      <td>-</td>
                     </tr>
 
 
@@ -140,18 +144,18 @@
                     <tr>
                       <th scope="row">Strzały wystrzelone</th>
                       <td>{{all_statistics.result_general|first}}</td>
-                      <td>-</td>
+                      <td>100%</td>
 
                     </tr>
                     <tr>
                       <th scope="row">Strzały punktowane</th>
                       <td>{{all_statistics.result_general|slice:"4:5"|join:"" }}</td>
-                      <td>{{all_statistics.procent|slice:"4:5"|join:""}}</td>
+                      <td>{{all_statistics.procent|slice:"4:5"|join:""}}%</td>
                     </tr>
                     <tr>
                       <th scope="row">Strzały w macie bez punktów</th>
                       <td>{{all_statistics.result_general|slice:"3:4"|join:"" }}</td>
-                      <td>{{all_statistics.procent|slice:"3:4"|join:""}}</td>
+                      <td>{{all_statistics.procent|slice:"3:4"|join:""}}%</td>
                     </tr>
                     <tr>
                       <th scope="row">Średni wynik strzały</th>
@@ -160,13 +164,13 @@
                     </tr>
                     <tr>
                       <th scope="row">Strzały w macie(punktowane i bez punktów)</th>
-                      <td>{{all_statistics.result_general|slice:"3:4"|join:"" }}</td>
-                      <td>{{all_statistics.procent|slice:"3:4"|join:""}}</td>
+                      <td>{{all_statistics.result_general|slice:"2:3"|join:"" }}</td>
+                      <td>{{all_statistics.procent|slice:"2:3"|join:""}}%</td>
                     </tr>
                     <tr>
                       <th scope="row">Strzały spudłowane</th>
                       <td>{{all_statistics.result_general|slice:"1:2"|join:""}}</td>
-                      <td>{{all_statistics.procent|slice:"1:2"|join:""}}</td>
+                      <td>{{all_statistics.procent|slice:"1:2"|join:""}}%</td>
                     </tr>
                     <tr>
                       <th scope="row"> </th>
@@ -190,35 +194,38 @@
                     <tr>
                       <th scope="row">Strzały wystrzelone</th>
                       <td>{{all_statistics.result_side|first}}</td>
-                      <td>-</td>
-
+                      <td>100%</td>
                     </tr>
                     <tr>
                       <th scope="row">Strzały punktowane</th>
                       <td>{{all_statistics.result_side|slice:"4:5"|join:"" }}</td>
-                      <td>{{all_statistics.procent_side|slice:"4:5"|join:""}}</td>
+                      <td>{{all_statistics.procent_side|slice:"4:5"|join:""}}%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały w macie (punktowane i bez punktów)</th>
+                      <td>{{all_statistics.result_side|slice:"2:3"|join:"" }}</td>
+                      <td>{{all_statistics.procent_side|slice:"2:3"|join:""}}%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały punktowane do strzał w macie (punktowanych i bez punktów)</th>
+                      <td>{{all_statistics.result_side|slice:"4:5"|join:"" }}/{{all_statistics.result_side|slice:"2:3"|join:"" }}</td>
+                      <td>{{all_statistics.result_side|slice:"6:7"|join:"" }}%</td>
                     </tr>
                     <tr>
                       <th scope="row">Strzały w macie bez punktów</th>
                       <td>{{all_statistics.result_side|slice:"3:4"|join:"" }}</td>
-                      <td>{{all_statistics.procent_side|slice:"3:4"|join:""}}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Średni wynik strzały</th>
-                      <td>{{all_statistics.result_side|slice:"5:6"|join:"" }}</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Strzały w macie(punktowane i bez punktów)</th>
-                      <td>{{all_statistics.result_side|slice:"2:3"|join:"" }}</td>
-                      <td>{{all_statistics.procent_side|slice:"2:3"|join:""}}</td>
+                      <td>{{all_statistics.procent_side|slice:"3:4"|join:""}}%</td>
                     </tr>
                     <tr>
                       <th scope="row">Strzały spudłowane</th>
                       <td>{{all_statistics.result_side|slice:"1:2"|join:""}}</td>
-                      <td>{{all_statistics.procent_side|slice:"1:2"|join:""}}</td>
+                      <td>{{all_statistics.procent_side|slice:"1:2"|join:""}}%</td>
                     </tr>
-
+                    <tr>
+                      <th scope="row">Średni wynik strzały</th>
+                      <td>{{all_statistics.result_side|slice:"5:6"|join:""}}</td>
+                      <td>-</td>
+                    </tr>
 
               </tbody>
             </table>
@@ -237,33 +244,38 @@
                     <tr>
                       <th scope="row">Strzały wystrzelone</th>
                       <td>{{all_statistics.result_back|first}}</td>
-                      <td>-</td>
+                      <td>100%</td>
 
                     </tr>
                     <tr>
                       <th scope="row">Strzały punktowane</th>
                       <td>{{all_statistics.result_back|slice:"4:5"|join:"" }}</td>
-                      <td>{{all_statistics.procent_back|slice:"4:5"|join:""}}</td>
+                      <td>{{all_statistics.procent_back|slice:"4:5"|join:""}}%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały w macie (punktowane i bez punktów)</th>
+                      <td>{{all_statistics.result_back|slice:"2:3"|join:"" }}</td>
+                      <td>{{all_statistics.procent_back|slice:"2:3"|join:""}}%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Strzały punktowane do strzał w macie (punktowanych i bez punktów)</th>
+                      <td>{{all_statistics.result_back|slice:"4:5"|join:"" }}/{{all_statistics.result_back|slice:"2:3"|join:"" }}</td>
+                      <td>{{all_statistics.result_back|slice:"6:7"|join:"" }}%</td>
                     </tr>
                     <tr>
                       <th scope="row">Strzały w macie bez punktów</th>
                       <td>{{all_statistics.result_back|slice:"3:4"|join:"" }}</td>
-                      <td>{{all_statistics.procent_back|slice:"3:4"|join:""}}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Średni wynik strzały</th>
-                      <td>{{all_statistics.result_back|slice:"5:6"|join:"" }}</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Strzały w macie(punktowane i bez punktów)</th>
-                      <td>{{all_statistics.result_back|slice:"2:3"|join:"" }}</td>
-                      <td>{{all_statistics.procent_back|slice:"2:3"|join:""}}</td>
+                      <td>{{all_statistics.procent_back|slice:"3:4"|join:""}}%</td>
                     </tr>
                     <tr>
                       <th scope="row">Strzały spudłowane</th>
                       <td>{{all_statistics.result_back|slice:"1:2"|join:""}}</td>
-                      <td>{{all_statistics.procent_back|slice:"1:2"|join:""}}</td>
+                      <td>{{all_statistics.procent_back|slice:"1:2"|join:""}}%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Średni wynik strzały</th>
+                      <td>{{all_statistics.result_back|slice:"5:6"|join:""}}</td>
+                      <td>-</td>
                     </tr>
 
 
