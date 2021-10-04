@@ -115,7 +115,8 @@ class Training(models.Model):
                     counted_arrows_f += 1
                     result_f += int(liczymy_f[x])
         average_arrow_f = round((result_f / counted_arrows_f), 2)
-        return arrows_shoot_f, missed_arrows_f, arrows_in_target_f, arrows_in_target_no_points_f, counted_arrows_f,average_arrow_f, result_f
+        bad_luck_factor_f = round((counted_arrows_f / arrows_in_target_f * 100),2)
+        return arrows_shoot_f, missed_arrows_f, arrows_in_target_f, arrows_in_target_no_points_f, counted_arrows_f,average_arrow_f,bad_luck_factor_f, result_f
 
 # wyniki w bok
 
@@ -142,7 +143,8 @@ class Training(models.Model):
                     counted_arrows_s += 1
                     result_s += int(liczymy_s[x])
         average_arrow_s = round((result_s / counted_arrows_s), 2)
-        return arrows_shoot_s, missed_arrows_s, arrows_in_target_s, arrows_in_target_no_points_s, counted_arrows_s,average_arrow_s, result_s
+        bad_luck_factor_s = round((counted_arrows_s / arrows_in_target_s * 100), 2)
+        return arrows_shoot_s, missed_arrows_s, arrows_in_target_s, arrows_in_target_no_points_s, counted_arrows_s,average_arrow_s, bad_luck_factor_s, result_s
 
 
 #wyniki tył
@@ -169,7 +171,8 @@ class Training(models.Model):
                     counted_arrows_b += 1
                     result_b += int(liczymy_b[x])
         average_arrow_b = round((result_b / counted_arrows_b), 2)
-        return arrows_shoot_b, missed_arrows_b, arrows_in_target_b, arrows_in_target_no_points_b, counted_arrows_b,average_arrow_b, result_b
+        bad_luck_factor_b = round((counted_arrows_b / arrows_in_target_b * 100), 2)
+        return arrows_shoot_b, missed_arrows_b, arrows_in_target_b, arrows_in_target_no_points_b, counted_arrows_b,average_arrow_b, bad_luck_factor_b, result_b
 
 #obliczenia procentów
     @property
