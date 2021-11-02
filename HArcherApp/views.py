@@ -15,12 +15,12 @@ def all_results(request):
 @login_required
 def plots(request):
     daty = Training.objects.values_list('date')
-    wyniki = Training.objects.values_list('result')
+    wyniki = instance
     plt.plot(daty, wyniki, '-bo')
-    plt.ylabel('Wyniki w czasie')
+    plt.ylabel('Wynik')
     plt.xlabel('Data')
     plt.xticks(rotation=30)
-    plt.title('Wynik')
+    plt.title('Wyniki')
     plt.grid()
     fig = plt.gcf()
     buf = io.BytesIO()
@@ -60,7 +60,7 @@ def delete_training(request, id):
 
     return render(request, 'potwierdz.html', {'training': training, 'nowy': True})
 
-# @login_required
+@login_required
 def all_statistics(request, id):
     all_statistics = get_object_or_404(Training, pk=id)
 

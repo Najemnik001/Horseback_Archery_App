@@ -3,10 +3,13 @@ from django.contrib import messages
 from django.contrib.auth.models import User, auth
 
 
+def login(request):
+    pass
+
+
 def register(request):
     if request.method == 'POST':
         first_name=request.POST['first_name']
-        last_name=request.POST['last_name']
         username=request.POST['username']
         email=request.POST['email']
         password1=request.POST['password1']
@@ -16,11 +19,11 @@ def register(request):
             if User.objects.filter(username=username).exists():
                 messages.info(request,'Nazwa użytkownika zajęta')
                 return render(request, 'register.html')
-            elif User.objects.filter(email=email).exist():
+            elif User.objects.filter(email=email).exists():
                 messages.info(request,'Ten e-mail jest już użyty')
                 return render(request, 'register.html')
             else:
-                user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
+                user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name)
                 user.save()
                 messages.info(request,'Konto utworzone, zaloguj się')
                 return redirect('/login/')

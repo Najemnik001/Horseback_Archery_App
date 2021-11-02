@@ -2,8 +2,6 @@ from django.db import models
 from django.utils import timezone
 
 
-
-
 class Training(models.Model):
 
     title = models.CharField(max_length=64, default='Tower 90')
@@ -62,19 +60,22 @@ class Training(models.Model):
         result = 0
         for liczymy in tarcze:
             for x in range(0, len(liczymy)):
-                arrows_shoot += 1
                 if liczymy[x] == "-":
                     missed_arrows += 1
+                    arrows_shoot += 1
                 elif liczymy[x] == '0':
                     arrows_in_target += 1
                     arrows_in_target_no_points += 1
+                    arrows_shoot += 1
                 elif liczymy[x] == '1' or liczymy[x] == '2' or liczymy[x] == '3' or liczymy[x] == '4' or liczymy[x] == '5':
                     arrows_in_target += 1
                     counted_arrows += 1
                     result += int(liczymy[x])
+                    arrows_shoot += 1
         average_arrow = round((result/counted_arrows),2)
+        counted_arrows_to_not_counted = counted_arrows/arrows_in_target_no_points
 
-        return arrows_shoot, missed_arrows, arrows_in_target, arrows_in_target_no_points, counted_arrows,average_arrow ,result
+        return arrows_shoot, missed_arrows, arrows_in_target, arrows_in_target_no_points, counted_arrows,average_arrow,counted_arrows_to_not_counted ,result
 
 #punkty suma
     # @property
@@ -104,19 +105,22 @@ class Training(models.Model):
         result_f = 0
         for liczymy_f in tarcze_f:
             for x in range(0, len(liczymy_f)):
-                arrows_shoot_f += 1
                 if liczymy_f[x] == "-":
                     missed_arrows_f += 1
+                    arrows_shoot_f += 1
                 elif liczymy_f[x] == '0':
                     arrows_in_target_f += 1
                     arrows_in_target_no_points_f += 1
+                    arrows_shoot_f += 1
                 elif liczymy_f[x] == '1' or liczymy_f[x] == '2' or liczymy_f[x] == '3' or liczymy_f[x] == '4' or liczymy_f[x] == '5':
                     arrows_in_target_f += 1
                     counted_arrows_f += 1
                     result_f += int(liczymy_f[x])
+                    arrows_shoot_f += 1
         average_arrow_f = round((result_f / counted_arrows_f), 2)
+        counted_arrows_to_not_counted_f = counted_arrows_f / arrows_in_target_f
         bad_luck_factor_f = round((counted_arrows_f / arrows_in_target_f * 100),2)
-        return arrows_shoot_f, missed_arrows_f, arrows_in_target_f, arrows_in_target_no_points_f, counted_arrows_f,average_arrow_f,bad_luck_factor_f, result_f
+        return arrows_shoot_f, missed_arrows_f, arrows_in_target_f, arrows_in_target_no_points_f, counted_arrows_f,average_arrow_f,bad_luck_factor_f,counted_arrows_to_not_counted_f, result_f
 
 # wyniki w bok
 
@@ -131,20 +135,23 @@ class Training(models.Model):
         result_s = 0
         for liczymy_s in tarcze_s:
             for x in range(0, len(liczymy_s)):
-                arrows_shoot_s += 1
                 if liczymy_s[x] == "-":
                     missed_arrows_s += 1
+                    arrows_shoot_s += 1
                 elif liczymy_s[x] == '0':
                     arrows_in_target_s += 1
                     arrows_in_target_no_points_s += 1
+                    arrows_shoot_s += 1
                 elif liczymy_s[x] == '1' or liczymy_s[x] == '2' or liczymy_s[x] == '3' or liczymy_s[x] == '4' or \
                         liczymy_s[x] == '5':
                     arrows_in_target_s += 1
                     counted_arrows_s += 1
                     result_s += int(liczymy_s[x])
+                    arrows_shoot_s += 1
         average_arrow_s = round((result_s / counted_arrows_s), 2)
+        counted_arrows_to_not_counted_s = counted_arrows_s / arrows_in_target_s
         bad_luck_factor_s = round((counted_arrows_s / arrows_in_target_s * 100), 2)
-        return arrows_shoot_s, missed_arrows_s, arrows_in_target_s, arrows_in_target_no_points_s, counted_arrows_s,average_arrow_s, bad_luck_factor_s, result_s
+        return arrows_shoot_s, missed_arrows_s, arrows_in_target_s, arrows_in_target_no_points_s, counted_arrows_s,average_arrow_s,bad_luck_factor_s, counted_arrows_to_not_counted_s,  result_s
 
 
 #wyniki tył
@@ -159,20 +166,23 @@ class Training(models.Model):
         result_b = 0
         for liczymy_b in tarcze_b:
             for x in range(0, len(liczymy_b)):
-                arrows_shoot_b += 1
                 if liczymy_b[x] == "-":
                     missed_arrows_b += 1
+                    arrows_shoot_b += 1
                 elif liczymy_b[x] == '0':
                     arrows_in_target_b += 1
                     arrows_in_target_no_points_b += 1
+                    arrows_shoot_b += 1
                 elif liczymy_b[x] == '1' or liczymy_b[x] == '2' or liczymy_b[x] == '3' or liczymy_b[x] == '4' or \
                         liczymy_b[x] == '5':
                     arrows_in_target_b += 1
                     counted_arrows_b += 1
                     result_b += int(liczymy_b[x])
+                    arrows_shoot_b += 1
         average_arrow_b = round((result_b / counted_arrows_b), 2)
+        counted_arrows_to_not_counted_b = counted_arrows_b / arrows_in_target_b
         bad_luck_factor_b = round((counted_arrows_b / arrows_in_target_b * 100), 2)
-        return arrows_shoot_b, missed_arrows_b, arrows_in_target_b, arrows_in_target_no_points_b, counted_arrows_b,average_arrow_b, bad_luck_factor_b, result_b
+        return arrows_shoot_b, missed_arrows_b, arrows_in_target_b, arrows_in_target_no_points_b, counted_arrows_b,average_arrow_b,bad_luck_factor_b,counted_arrows_to_not_counted_b, result_b
 
 #obliczenia procentów
     @property
